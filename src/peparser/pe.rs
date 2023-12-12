@@ -26,6 +26,7 @@ impl<'a> PE<'a> {
         })
     }
 
+    #[inline]
     pub fn is_x86(&self) -> bool {
         match self.pe_header.nt_header {
             ImageNtHeaders::x86(_) => true,
@@ -33,10 +34,12 @@ impl<'a> PE<'a> {
         }
     }
 
+    #[inline]
     pub fn is_x64(&self) -> bool {
         !self.is_x86()
     }
 
+    #[inline]
     pub fn is_dll(&self) -> bool {
         match self.pe_header.nt_header {
             ImageNtHeaders::x86(h) => h.FileHeader.Characteristics & IMAGE_FILE_DLL != 0,
@@ -44,6 +47,7 @@ impl<'a> PE<'a> {
         }
     }
 
+    #[inline]
     pub fn is_dot_net(&self) -> bool {
         let dot_net_desc =
             &self.pe_header.nt_header.get_data_directory()[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR];
