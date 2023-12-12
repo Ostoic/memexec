@@ -1,16 +1,19 @@
+#![cfg_attr(not(feature = "std"), no_std)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(overflowing_literals)]
 #![allow(non_upper_case_globals)]
 
+extern crate alloc;
+
 pub mod error;
 pub mod peloader;
 pub mod peparser;
 
+use core::ffi::c_void;
 use error::Result;
 use peloader::{DllLoader, ExeLoader};
 use peparser::PE;
-use std::os::raw::c_void;
 
 #[cfg(feature = "hook")]
 pub use peloader::hook;
@@ -66,6 +69,7 @@ pub unsafe fn memexec_dll_with_hooks(
 }
 
 #[cfg(test)]
+#[cfg(feature = "std")]
 mod tests {
     use super::*;
     use std::fs::File;

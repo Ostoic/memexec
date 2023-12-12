@@ -1,7 +1,7 @@
 use super::def::*;
 use super::error::{Error, Result};
-use std::mem;
-use std::os::raw::c_void;
+use core::ffi::c_void;
+use core::mem;
 
 // Zero copy
 #[derive(Debug)]

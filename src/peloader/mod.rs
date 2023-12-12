@@ -4,12 +4,12 @@ pub mod winapi;
 
 use crate::peparser::def::*;
 use crate::peparser::PE;
+use core::ffi::c_void;
+use core::ffi::CStr;
+use core::mem;
+use core::ptr;
 use def::{DllMain, DLL_PROCESS_ATTACH, MEM_COMMIT, MEM_RESERVE};
 use error::{Error, Result};
-use std::ffi::CStr;
-use std::mem;
-use std::os::raw::c_void;
-use std::ptr;
 
 #[cfg(feature = "hook")]
 use hook::{ProcDesc, Thunk};

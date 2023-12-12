@@ -1,4 +1,4 @@
-use std::os::raw::c_void;
+use core::ffi::c_void;
 
 pub(crate) type WORD = u16;
 pub(crate) type LONG = i32;

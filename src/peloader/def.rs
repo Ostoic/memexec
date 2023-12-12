@@ -1,4 +1,4 @@
-use std::os::raw::{c_char, c_void};
+use core::ffi::{c_char, c_void};
 
 pub(crate) type PVOID = *const c_void;
 pub(crate) type HANDLE = PVOID;

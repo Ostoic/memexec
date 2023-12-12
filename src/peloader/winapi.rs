@@ -1,8 +1,9 @@
+use alloc::ffi::CString;
+
 use super::def::*;
 use super::error::{Error, Result};
-use std::ffi::CString;
-use std::mem;
-use std::os::raw::c_char;
+use core::ffi::c_char;
+use core::mem;
 
 extern "system" {
     fn LoadLibraryA(lpLibFileName: LPCSTR) -> HMODULE;

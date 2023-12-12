@@ -8,16 +8,16 @@ pub enum Error {
     MismatchedArch,
 }
 
-impl std::convert::From<peloader::error::Error> for Error {
+impl core::convert::From<peloader::error::Error> for Error {
     fn from(err: peloader::error::Error) -> Self {
         Error::PeLoaderErr(err)
     }
 }
 
-impl std::convert::From<peparser::error::Error> for Error {
+impl core::convert::From<peparser::error::Error> for Error {
     fn from(err: peparser::error::Error) -> Self {
         Error::PeParserErr(err)
     }
 }
 
-pub type Result<T> = std::result::Result<T, Error>;
+pub type Result<T> = core::result::Result<T, Error>;

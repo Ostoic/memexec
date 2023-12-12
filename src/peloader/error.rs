@@ -13,16 +13,16 @@ pub enum Error {
     InvalidProcDescString,
 }
 
-pub type Result<T> = std::result::Result<T, Error>;
+pub type Result<T> = core::result::Result<T, Error>;
 
-impl std::convert::From<std::str::Utf8Error> for Error {
-    fn from(_: std::str::Utf8Error) -> Self {
+impl core::convert::From<core::str::Utf8Error> for Error {
+    fn from(_: core::str::Utf8Error) -> Self {
         Error::InvalidUtf8String
     }
 }
 
-impl std::convert::From<std::num::ParseIntError> for Error {
-    fn from(_: std::num::ParseIntError) -> Self {
+impl core::convert::From<core::num::ParseIntError> for Error {
+    fn from(_: core::num::ParseIntError) -> Self {
         Error::InvalidProcDescString
     }
 }

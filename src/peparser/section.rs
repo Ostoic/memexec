@@ -1,7 +1,7 @@
 use super::def::*;
 use super::error::Result;
-use std::mem;
-use std::ptr;
+use core::mem;
+use core::ptr;
 
 #[repr(C)]
 #[derive(Debug)]
